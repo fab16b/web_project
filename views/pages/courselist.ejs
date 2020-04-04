@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <title>courselist.ejs <%= pageTitle %></title>
+  </head>
+
+  <body>
+    <%= message %>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Created</th>
+        <th>Submitted</th>
+        <th>Approved</th>
+      </tr>
+      <% rows.forEach(function(r){ %>
+      <tr>
+        <td class="td-center"><%= r.id %></td>
+        <td><%= r.title %></td>
+        <td><%= r.description %></td>
+        <td><%= r.created_date.toLocaleDateString("en-US") %></td>
+        <td class="td-center"><%= r.submitted_by %></td>
+        <td class="td-center"><%= r.approved_by %></td>
+      </tr>
+      <% }); %>
+    </table>
+  </body>
+</html>

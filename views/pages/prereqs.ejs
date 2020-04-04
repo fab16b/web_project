@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <title>courselist.ejs <%= pageTitle %></title>
+  </head>
+
+  <body>
+    <h2><%= message %></h2>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Created</th>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+      </tr>
+      <% let rr = -1; rows.forEach( function(r) { %>
+      <tr>
+        <% if (rr !== r.id) { rr = r.id %>
+        <td class="td-center"><%= r.id %></td>
+        <td><%= r.title %></td>
+        <td><%= r.description %></td>
+        <td><%= r.created_date.toLocaleDateString("en-US") %></td>
+        <% } else { %>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <% } %>
+        <td class="td-center"><%= r.p_id %></td>
+        <td><%= r.p_title %></td>
+        <td><%= r.p_description %></td>
+      </tr>
+      <% }); %>
+    </table>
+  </body>
+</html>
