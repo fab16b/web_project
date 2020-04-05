@@ -4,30 +4,32 @@
 -- 
 -- add courses
 --
-drop database `web2_01_fab16b`;
-CREATE DATABASE `web2_01_fab16b` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `web2_01_fab16b`;
+drop database `web2_01_amg16h`;
+CREATE DATABASE `web2_01_amg16h` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `web2_01_amg16h`;
 
 drop table if exists `accounts`;
 CREATE TABLE `accounts` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `email` varchar(100) NOT NULL
+  `email` varchar(100) NOT NULL,
+  `role` varchar(100) NOT NULL,
+  PRIMARY KEY(id)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-ALTER TABLE `accounts` ADD PRIMARY KEY (`id`);
+-- ALTER TABLE `accounts` ADD PRIMARY KEY (`id`);
 -- ALTER TABLE `accounts` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 select 'inserting accounts';
 
 INSERT INTO `accounts` 
-(`id`, `username`, `password`, `email`) VALUES 
-(1, 'test', 'test', 'test@test.com'),
-(2, 'boss', 'boss', 'boss@test.com'),
-(3, 'admin', 'admin', 'admin@test.com'),
-(4, 'dean', 'dean', 'dean@test.com'),
-(5, 'teacher1', 'teacher1', 'brent.reeves@acu.edu'),
+(`username`, `password`, `email`, `role`) VALUES 
+('test', 'test', 'test@test.com', 'member'),
+('boss', 'boss', 'boss@test.com', 'admin'),
+('admin', 'admin', 'admin@test.com', 'admin'),
+('dean', 'dean', 'dean@test.com', 'member'),
+('teacher1', 'teacher1', 'brent.reeves@acu.edu', 'member');
 
 --
 -- special dispensation mysql_native_password
@@ -36,7 +38,7 @@ drop user if exists 'blee'@'localhost';
 
 create user 'blee'@'localhost' identified with mysql_native_password by 'Blee';
 
-grant all on web2_01_fab16b.accounts to 'blee'@'localhost';
+grant all on web2_01_amg16h.accounts to 'blee'@'localhost';
 
 
 drop table if exists course;
@@ -50,7 +52,7 @@ create table course (
     approved_by int -- 1-M
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-grant all on web2_01_fab16b.course to 'blee'@'localhost';
+grant all on web2_01_amg16h.course to 'blee'@'localhost';
 
 select 'inserting course';
 
@@ -73,7 +75,7 @@ create table prereqs (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 ALTER TABLE `prereqs` ADD PRIMARY KEY (`course_id`, `prereq_id`);
-grant all on web2_01_fab16b.prereqs to 'blee'@'localhost';
+grant all on web2_01_amg16h.prereqs to 'blee'@'localhost';
 
 select 'inserting prereqs';
 
