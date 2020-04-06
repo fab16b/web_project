@@ -4,10 +4,12 @@ const coursesRoute = require("./courses");
 const prereqsRoute = require("./prereqs");
 const newcourseRoute = require("./newcourse");
 const signupRoute = require("./signup"); // added
-const bodyParser = require('body-parser'); // added
+const loginRoute = require("./login");
+const homeRoute = require("./home");
+const bodyParser = require("body-parser"); // added
 const router = express.Router();
 
-module.exports = params => {
+module.exports = (params) => {
   router.get("/", (req, res) => {
     console.log("index.js /");
     res.render("pages/index", { pageTitle: "Welcome" });
@@ -17,7 +19,7 @@ module.exports = params => {
     console.log("index.js /hello");
     res.render("pages/hello", {
       pageTitle: "Yo Hello",
-      message: "Hey, Bubba!"
+      message: "Hey, Bubba!",
     });
   });
 
@@ -25,6 +27,8 @@ module.exports = params => {
   router.use("/prereqs", prereqsRoute(params));
   router.use("/newcourse", newcourseRoute(params));
   router.use("/signup", signupRoute(params)); // added
+  router.use("/login", loginRoute(params));
+  router.use("/home", homeRoute(params));
   router.use(bodyParser.urlencoded({ extended: true })); // added
 
   return router;
