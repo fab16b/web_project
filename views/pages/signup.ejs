@@ -11,12 +11,10 @@
     </header>
 
     <article class="speakerslist jumbotron d-none d-sm-block">
-
       <form class="input" method="POST" action="/signup">
-
         <div class="group-username">
           <label for="username">Username</label>
-          <input 
+          <input
             type="text"
             id="new_username"
             name="username"
@@ -26,17 +24,12 @@
 
         <div class="group-email">
           <label for="email">Email</label>
-          <input 
-            type="text"
-            id="new_email"
-            name="email"
-            placeholder="Email"
-          />
+          <input type="text" id="new_email" name="email" placeholder="Email" />
         </div>
 
         <div class="group-password">
           <label for="password">Password</label>
-          <input 
+          <input
             type="text"
             id="new_password"
             name="password"
@@ -46,6 +39,15 @@
 
         <button type="submit" class="submit-button">Submit</button>
       </form>
+
+      <div>
+        Already have an account?
+        <a href="/login">Login</a>
+      </div>
+      <div>
+        Back to Landing page
+        <a href="/">Landing Page</a>
+      </div>
     </article>
 
     <script
@@ -53,6 +55,5 @@
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
-
   </body>
 </html>
