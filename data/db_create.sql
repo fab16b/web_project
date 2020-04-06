@@ -4,9 +4,9 @@
 -- 
 -- add courses
 --
-drop database `web2_01_amg16h`;
-CREATE DATABASE `web2_01_amg16h` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `web2_01_amg16h`;
+drop database `web2_01_fab16b`;
+CREATE DATABASE `web2_01_fab16b` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `web2_01_fab16b`;
 
 drop table if exists `accounts`;
 CREATE TABLE `accounts` (
@@ -38,7 +38,7 @@ drop user if exists 'blee'@'localhost';
 
 create user 'blee'@'localhost' identified with mysql_native_password by 'Blee';
 
-grant all on web2_01_amg16h.accounts to 'blee'@'localhost';
+grant all on web2_01_fab16b.accounts to 'blee'@'localhost';
 
 
 drop table if exists course;
@@ -52,7 +52,7 @@ create table course (
     approved_by int -- 1-M
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-grant all on web2_01_amg16h.course to 'blee'@'localhost';
+grant all on web2_01_fab16b.course to 'blee'@'localhost';
 
 select 'inserting course';
 
@@ -75,7 +75,7 @@ create table prereqs (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 ALTER TABLE `prereqs` ADD PRIMARY KEY (`course_id`, `prereq_id`);
-grant all on web2_01_amg16h.prereqs to 'blee'@'localhost';
+grant all on web2_01_fab16b.prereqs to 'blee'@'localhost';
 
 select 'inserting prereqs';
 
