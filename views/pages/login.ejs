@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>signup.ejs <%= pageTitle %></title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Login Page</h1>
+    </header>
+
+    <article class="speakerslist jumbotron d-none d-sm-block">
+      <form class="input" method="POST" action="/signup">
+        <div class="group-username">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="new_username"
+            name="username"
+            placeholder="Username"
+          />
+        </div>
+
+        <div class="group-password">
+          <label for="password">Password</label>
+          <input
+            type="text"
+            id="new_password"
+            name="password"
+            placeholder="Password"
+          />
+        </div>
+
+        <button type="submit" class="submit-button">Submit</button>
+      </form>
+    </article>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
